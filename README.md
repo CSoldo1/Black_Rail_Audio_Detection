@@ -40,4 +40,8 @@ My next step was to have the model break down any audio file I passed through it
 I tested the model by creating a 13-second practice audio file that I knew contained BLRA calls, along with one that did not. The model was able to correctly identify which audio file had the BLRA calls. 
 
 ## Future Work
+Although the model can correctly identify BLRA calls, there is still a lot of work needed to make it usable. For instance, each recording I have from the SM4s is an hour long. Will the model be able to adequately run through such a large file? Can it do it quickly without blowing up my computer? If the audio file is 1 hour, I will have 3600 spectrograms. Should I randomly select half of them to run through the model? 
 
+Furthermore, I want this model to be accessible to others. I am currently working on building a graphical user interface so that other biologists throughout the state can run their audio files through it. 
+
+I will continue to update this repo as I make more progress. 

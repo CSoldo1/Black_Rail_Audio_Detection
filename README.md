@@ -14,9 +14,6 @@ A "lost" Black Rail photographed in a flooded farm field in Illinois.
 
 One of several audio recorders deployed in the marsh of Lake Okeechobee. 
 
-## Task
-Create a machine learning model that will sift through hour-long audio files and identify Black Rail calls. 
-
 ## Resources
 * Hundred of hour-long .wav files collected with Song Meter SM4 from Wildlife Acoustics
 * Black Rail audio files from Xeno Canto
@@ -25,4 +22,22 @@ Create a machine learning model that will sift through hour-long audio files and
 * TensorFlow Package
 
 ## Analysis
+* Code for model can be found in repo under "BLRA_DNN"
+To detect Black Rail (BLRA) calls, I turned the audio detection problem into an image classification problem. Black Rails have a very unique mating call, and therefore, the waveform of the call would have a unique spectrogram. By converting the waveforms to a spectrogram, the model could then identify the appropriate "picture" of each BLRA call.
+
+My first step was training the model. I downloaded, amplified, clipped, and edited BLRA mating calls from Xeno Canto. Essentially, I told the model: "THIS IS A BLACK RAIL CALL."
+
+![BLRA_wave](https://github.com/CSoldo1/Black_Rail_Audio_Detection/assets/114112078/7093c312-f8fe-48a4-986e-e32a8b934bf2)
+
+The waveform of a BLRA "kick-ee-doo" call.
+
+BLRA mating calls are approximately 1 second long, and they can be depicted by the following spectrogram.
+
+![BLRA_spectrogram](https://github.com/CSoldo1/Black_Rail_Audio_Detection/assets/114112078/1638dfbc-48d5-451a-9b0d-437ef1016821)
+
+My next step was to have the model break down any audio file I passed through it into 1-second clips. A waveform was created for each audio clip and a spectrogram was created for each waveform. The model then went through each spectrogram and looked for ones that matched with the BLRA spectrogram. 
+
+I tested the model by creating a 13-second practice audio file that I knew contained BLRA calls, along with one that did not. The model was able to correctly identify which audio file had the BLRA calls. 
+
+## Future Work
 
